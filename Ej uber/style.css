@@ -1,0 +1,60 @@
+html{
+    scroll-behavior: smooth;
+}
+
+
+.container-fluid{
+    display: flex;
+     flex-direction: row;
+
+}
+
+.navbar-brand{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.text-white{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    left: 35%;
+    padding-left: 2cm;
+    color: #919191;
+}
+.reclamos{
+    margin-top: 2cm;
+    position: relative;
+    width: 80%;
+    left: 10%;
+}
+.form-select:hover{
+    cursor: pointer;
+}
+
+
+.form-control:hover{
+    cursor: text;
+}
+#boton{
+    display: flex;
+    position: relative;
+    left: 94.5%;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+
+
+
+
+.conoceme{
+   position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: center;
+    margin-top: 2cm;
+    position: relative;
+    width: 80%;
+    left: 10%;
+}
