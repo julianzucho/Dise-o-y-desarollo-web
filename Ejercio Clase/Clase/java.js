@@ -13,18 +13,35 @@ boton.addEventListener("click",seEjecutaEnEvento)
 
 
 
-target.addEventListener("click",function(){
-    target.classList.toggle("highlight")
-    this.style.color="red"
-
-})
 
 
 
-var lista =document.querySelectorAll(".parrafo>li")
+var lista =document.querySelectorAll("p")
 
 for (var i = 0; i < lista.length; i++) {
-    lista[i].addEventListener("click",function(){
-        target.classList.toggle("highlight")
+    lista[i].addEventListener("click",function(callback){
+        this.classList.toggle("highlight")
+    })
+}
+
+
+
+var plata=document.querySelector("button")
+/*var miami=document.querySelector("button")
+var ricky=document.querySelector("button")
+var imgplata=document.querySelector("image")
+
+var seEjecutaEnEvento=function(callback){
+imgplata.classList.toggle("oculto")
+
+}
+
+plata.addEventListener("click",seEjecutaEnEvento)
+*/
+var lista =document.querySelectorAll("img")
+
+for (var i = 0; i < lista.length; i++) {
+    plata.addEventListener("click",function(callback){
+        this.classList.toggle("highlight")
     })
 }

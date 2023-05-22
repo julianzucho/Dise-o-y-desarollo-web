@@ -7,3 +7,9 @@
     background-color:yellow ;
     color: red;
 }
+
+
+.oculto{
+
+    display: none;
+}
