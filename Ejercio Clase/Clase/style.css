@@ -13,3 +13,12 @@
 
     display: none;
 }
+
+#magic{
+    width: fit-content;
+    height: auto;
+    position: relative;
+    left: 40%;
+
+
+}
