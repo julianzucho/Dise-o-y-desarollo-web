@@ -20,6 +20,25 @@ html{
     padding-left: 2cm;
     color: #919191;
 }
+
+.lista{
+    position: relative;
+    left:5%;
+}
+
+#titulo{
+    margin-top: 2cm;
+}
+.objetivo{
+    
+    position: relative;
+    width: 80%;
+    left: 10%;
+    
+}
+
+
+
 .reclamos{
     margin-top: 2cm;
     position: relative;
@@ -43,10 +62,6 @@ html{
 a{
     text-decoration: none;
 }
-
-
-
-
 .conoceme{
    position: relative;
     display: flex;
@@ -57,4 +72,17 @@ a{
     position: relative;
     width: 80%;
     left: 10%;
+}
+
+.derechos{
+    background-color: #bfbfbf;
+    margin-top: 3cm;
+    height: 50px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: #919191;
+    
 }
