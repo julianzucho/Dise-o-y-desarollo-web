@@ -1,0 +1,17 @@
+.formulario{
+    margin-top: 2cm;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    border-radius: 3px;
+}
+
+.btn{
+    position: relative;
+    left: 94%;
+}
+
+.highlight{
+    background-color:yellow ;
+}
+
