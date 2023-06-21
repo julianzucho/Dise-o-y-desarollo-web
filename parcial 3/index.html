@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+  <title>Chistes App</title>
+  <style>
+    body {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #f5f5f5;
+    }
+
+    .ad-banner {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .creator-info {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Chistes App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Acerca de</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="container">
+    <div id="chiste-container">
+      <h1 class="text-center">¡Bienvenido!</h1>
+      <p class="text-center">Presiona el botón para ver un chiste:</p>
+      <div class="text-center">
+        <button id="chiste-btn" class="btn btn-primary">Mostrar Chiste</button>
+      </div>
+    </div>
+
+    <div id="chiste-content" style="display: none;">
+      <h2 class="text-center" id="chiste-titulo"></h2>
+      <p class="text-center" id="chiste-texto"></p>
+      <div class="text-center">
+        <button id="siguiente-btn" class="btn btn-primary">Siguiente Chiste</button>
+        <button id="copiar-btn" class="btn btn-secondary">Copiar</button>
+        <button id="compartir-btn" class="btn btn-success">Compartir</button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="ad-banner">
+        <img src="banner-publicidad.png" alt="Banner de Publicidad">
+      </div>
+      <div class="creator-info">
+        <p>Creado por <strong>Tu Nombre</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Lista de chistes
+      var chistes = [
+        {
+          titulo: 'Chiste 1',
+          texto: '¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter.'
+        },
+        {
+          titulo: 'Chiste 2',
+          texto: '¿Qué le dice un jardinero a otro? Nos vemos cuando podamos.'
+        },
+        {
+          titulo: 'Chiste 3',
+          texto: '¿Por qué los peces no utilizan Facebook? Porque ya tienen su propio muro.'
+        }
+      ];
+
+      var indiceChiste = 0;
+
+      // Mostrar el chiste actual
+      function mostrarChiste() {
+        var chisteActual = chistes[indiceChiste];
+        $('#chiste-titulo').text(chisteActual.titulo);
+        $('#chiste-texto').text(chisteActual.texto);
+      }
+
+      // Pasar al siguiente chiste
+      function siguienteChiste() {
+        indiceChiste++;
+        if (indiceChiste >= chistes.length) {
+          indiceChiste = 0;
+        }
+        mostrarChiste();
+      }
+
+      // Mostrar el primer chiste al hacer clic en el botón
+      $('#chiste-btn').click(function() {
+        $('#chiste-container').hide();
+        $('#chiste-content').show();
+        mostrarChiste();
+      });
+
+      // Pasar al siguiente chiste al hacer clic en el botón correspondiente
+      $('#siguiente-btn').click(function() {
+        siguienteChiste();
+      });
+
+      // Copiar el chiste al portapapeles al hacer clic en el botón correspondiente
+      $('#copiar-btn').click(function() {
+        var chisteActual = chistes[indiceChiste];
+        var chisteTexto = chisteActual.texto;
+        navigator.clipboard.writeText(chisteTexto).then(function() {
+          alert('¡El chiste se ha copiado al portapapeles!');
+        }, function(err) {
+          console.error('Error al copiar el chiste: ', err);
+        });
+      });
+
+      // Compartir el chiste al hacer clic en el botón correspondiente
+      $('#compartir-btn').click(function() {
+        var chisteActual = chistes[indiceChiste];
+        var chisteTexto = chisteActual.texto;
+        var shareText = '¡Mira este chiste!\n\n' + chisteTexto;
+        if (navigator.share) {
+          navigator.share({
+            title: chisteActual.titulo,
+            text: shareText
+          }).then(function() {
+            console.log('Chiste compartido');
+          }).catch(function(err) {
+            console.error('Error al compartir el chiste: ', err);
+          });
+        } else {
+          // Lógica de compartir alternativa para navegadores que no admiten el API de Web Share
+          // Por ejemplo, abrir una ventana emergente con los datos del chiste prellenados en una red social.
+          console.log('Funcionalidad de compartir no compatible en este navegador');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

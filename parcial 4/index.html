@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Agencia de Taxis</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Agencia de Taxis</h1>
+
+    <!-- Formulario para ingresar un nuevo pedido de taxi -->
+    <div id="nuevo-pedido" class="section">
+      <h2>Realizar un nuevo pedido de taxi</h2>
+      <form id="pedidoForm">
+        <div class="mb-3">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="direccion">Dirección:</label>
+          <input type="text" class="form-control" id="direccion" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" class="form-control" id="telefono" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Pedir Taxi</button>
+      </form>
+    </div>
+
+    <!-- Sección para mostrar los pedidos -->
+    <div id="pedidos" class="section">
+      <h2>Pedidos de Taxi</h2>
+      <ul id="lista-pedidos"></ul>
+    </div>
+
+    <!-- Sección para mostrar los viajes en curso -->
+    <div id="viajes" class="section">
+      <h2>Viajes en Curso</h2>
+      <ul id="lista-viajes"></ul>
+    </div>
+  </div>
+
+  <button id="toggle-modo" class="btn btn-secondary">Cambiar Modo</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

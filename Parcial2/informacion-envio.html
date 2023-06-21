@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+  <title>Información de Envío</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Información de Envío</h1>
+
+    <!-- Sección de producto y formulario de envío -->
+    <div id="producto-envio">
+      <h2>Producto</h2>
+      <div id="producto-imagen"></div>
+      <form id="envioForm">
+        <div class="mb-3">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="direccion">Dirección:</label>
+          <input type="text" class="form-control" id="direccion" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" class="form-control" id="telefono" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Realizar envío</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Obtener el valor del parámetro de consulta "comida" de la URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const comida = urlParams.get('comida');
+
+      // Mostrar la imagen correspondiente al producto seleccionado
+      if (comida === 'Pizza') {
+        $('#producto-imagen').html('<img src="pizza.jpg" alt="Pizza">');
+      } else if (comida === 'Hamburguesa') {
+        $('#producto-imagen').html('<img src="hamburguesa.jpg" alt="Hamburguesa">');
+      } else if (comida === 'Sushi') {
+        $('#producto-imagen').html('<img src="sushi.jpg" alt="Sushi">');
+      }
+
+      // Manejar el envío del formulario
+      $('#envioForm').submit(function(event) {
+        event.preventDefault(); // Evitar el envío del formulario por defecto
+
+        // Obtener los valores del formulario
+        var nombre = $('#nombre').val();
+        var direccion = $('#direccion').val();
+        var telefono = $('#telefono').val();
+
+        // Realizar cualquier otra lógica necesaria con los datos del envío
+
+        // Limpiar el formulario
+        $('#nombre').val('');
+        $('#direccion').val('');
+        $('#telefono').val('');
+
+        // Redirigir a una página de confirmación u otra acción necesaria
+        window.location.href = 'confirmacion-envio.html';
+      });
+    });
+  </script>
+</body>
+</html>
