@@ -1,0 +1,86 @@
+html{
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+.dark-mode {
+    background-color: #333;
+    color: #f0f0f0;
+  }
+.conoceme{
+    position: relative;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     justify-content: center;
+     margin-top: 2cm;
+     position: relative;
+     width: 80%;
+     left: 10%;
+ }
+ 
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+.intro{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.libro{    
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#libro{
+    background-image: url(394862.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+.container1{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
+.txt{
+    margin-top: 5%;
+    text-align: center;
+}
+.boton{
+    
+    display: inline;
+}
+
+
+.btn{
+
+    margin-bottom: 1cm;
+}
